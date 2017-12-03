@@ -1,31 +1,31 @@
-ReactDOM.render(React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    'Help Queue'
-  ),
-  React.createElement(
-    'h3',
-    null,
-    '3 a'
-  ),
-  React.createElement(
-    'h3',
-    null,
-    'Thato and Haley'
-  ),
-  React.createElement(
-    'p',
-    null,
-    React.createElement(
-      'em',
-      null,
-      'Firebase wont save record'
-    )
-  )
-), document.getElementById('react-app-root'));
+// ReactDOM.render(React.createElement(
+//   'div',
+//   null,
+//   React.createElement(
+//     'h1',
+//     null,
+//     'Help Queue'
+//   ),
+//   React.createElement(
+//     'h3',
+//     null,
+//     '3 a'
+//   ),
+//   React.createElement(
+//     'h3',
+//     null,
+//     'Thato and Haley'
+//   ),
+//   React.createElement(
+//     'p',
+//     null,
+//     React.createElement(
+//       'em',
+//       null,
+//       'Firebase wont save record'
+//     )
+//   )
+// ), document.getElementById('react-app-root'));
 
 // example #2 below note what is here is simplified via jsx file
 // var heading = React.createElement('h1', {}, 'Help Queue');
