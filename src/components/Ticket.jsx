@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Ticket(props){
-  var myStyledComponentStyles = {
+
+  let myStyledComponentStyles = {
     backgroundColor: "#ecf0f1",
     fontFamily: "sans-serif",
     paddingTop: "50px"

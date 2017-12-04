@@ -1,11 +1,37 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { AppContainer } from 'react-hot-loader';
 import App from "./components/App";
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('react-app-root')
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
+    document.getElementById('react-app-root')
+  );
+};
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    render(App)
+  });
+}
+
+// index.html below<!DOCTYPE html>
+// <html>
+//   <head>
+//     <title>My First React Project</title>
+//
+//   </head>
+//   <body>
+//     <div id='react-app-root'>
+//     </div>
+//   </body>
+//   <script src='build/app.bundle.js'></script>
+// </html>
 
 // ReactDOM.render(React.createElement(
 //   'div',
