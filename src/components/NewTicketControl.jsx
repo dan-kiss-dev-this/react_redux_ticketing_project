@@ -5,7 +5,7 @@ class NewTicketControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {formVisibleOnPage: false};
-    this.handleDisplayingNewTicketForm = this.handleDisplayingNewTicketForm.bind(this); 
+    this.handleDisplayingNewTicketForm = this.handleDisplayingNewTicketForm.bind(this);
   }
 
   handleDisplayingNewTicketForm(event){
@@ -14,11 +14,21 @@ class NewTicketControl extends React.Component {
   }
 
   render(){
-    return (
-      <button onClick={this.handleDisplayingNewTicketForm}>Request Help</button>
-    );
-  }
+      let formAreaContent = null;
+      if (this.state.formVisibleOnPage){
+        formAreaContent = <h1>Form will eventually go here</h1>
+      } else {
+        formAreaContent = <button onClick={this.handleDisplayingNewTicketForm.bind(this)}>Request Help</button>;
+      }
+      return (
+        <div>
+          {formAreaContent}
+        </div>
+      );
+    }
 
+
+      // <button onClick={this.handleDisplayingNewTicketForm}>Request Help</button>
 
 }
 
