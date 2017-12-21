@@ -65,4 +65,4 @@ class NewTicketForm extends React.Component {
 //   );
 // }
 //
-// export default NewTicketForm;
+export default NewTicketForm;
