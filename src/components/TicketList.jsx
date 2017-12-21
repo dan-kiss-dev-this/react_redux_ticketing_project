@@ -20,18 +20,6 @@ var masterTicketList = [
 ]
 
 class TicketList extends React.Component {
-//
-// function TicketList(props){
-  // constructor(props) {
-  //   super(props);
-  // }
-  //extra below
-  // componentDidMount(){
-  //
-  // }
-  // componentDidUpdate(){
-  //
-  // }
   render() {
     return (
       <div>
