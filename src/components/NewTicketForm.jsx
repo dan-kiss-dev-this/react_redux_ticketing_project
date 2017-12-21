@@ -43,6 +43,8 @@ class NewTicketForm extends React.Component {
 
 }
 
+export default NewTicketForm;
+
 // old functional is below, need to change to make class based component
 // function NewTicketForm(props) {
 //
@@ -65,4 +67,3 @@ class NewTicketForm extends React.Component {
 //   );
 // }
 //
-export default NewTicketForm;
