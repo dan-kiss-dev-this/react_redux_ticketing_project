@@ -1,4 +1,6 @@
 import React from "react";
+import Ticket from "../models/Ticket.js";
+//ticket.js above
 
 class NewTicketForm extends React.Component {
 
@@ -12,8 +14,9 @@ class NewTicketForm extends React.Component {
     console.log(this.refs._names.value);
     //console.log(_names.value);
     const { _names, _location, _issue } = this.refs;
-    console.log(_names.value);
-    alert(`Data Gathered! ${_names.value}, ${_location.value}, ${_issue.value}`);
+    var newTicket = new Ticket(_names.value, _location.value, _issue.value);
+    console.log(newTicket);
+    // alert(`Data Gathered! ${_names.value}, ${_location.value}, ${_issue.value}`);
   }
 
   render(){
