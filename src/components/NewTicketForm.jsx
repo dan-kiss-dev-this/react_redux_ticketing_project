@@ -17,6 +17,7 @@ class NewTicketForm extends React.Component {
     var newTicket = new Ticket(_names.value, _location.value, _issue.value);
     console.log(newTicket);
     this.props.onNewTicketCreation(newTicket);
+    this.props.hideFormAfterSubmission();
     // alert(`Data Gathered! ${_names.value}, ${_location.value}, ${_issue.value}`);
   }
 
@@ -48,7 +49,8 @@ class NewTicketForm extends React.Component {
 }
 
 NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
+  onNewTicketCreation: PropTypes.func,
+  hideFormAfterSubmission: PropTypes.func
 }
 
 export default NewTicketForm;
