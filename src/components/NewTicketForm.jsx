@@ -1,5 +1,6 @@
 import React from "react";
-import Ticket from "../models/Ticket.js";
+import Ticket from "../models/ticket.js";
+import PropTypes from "prop-types";
 //ticket.js above
 
 class NewTicketForm extends React.Component {
@@ -12,10 +13,10 @@ class NewTicketForm extends React.Component {
   handleNewTicketFormSubmission(event) {
     event.preventDefault()
     console.log(this.refs._names.value);
-    //console.log(_names.value);
     const { _names, _location, _issue } = this.refs;
     var newTicket = new Ticket(_names.value, _location.value, _issue.value);
     console.log(newTicket);
+    this.props.onNewTicketCreation(newTicket);
     // alert(`Data Gathered! ${_names.value}, ${_location.value}, ${_issue.value}`);
   }
 
@@ -44,6 +45,10 @@ class NewTicketForm extends React.Component {
     );
   }
 
+}
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func
 }
 
 export default NewTicketForm;
