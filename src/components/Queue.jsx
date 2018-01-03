@@ -12,7 +12,8 @@ class Queue extends React.Component {
   }
 
   addNewTicketToList(newTicket){
-    var newMasterTicketList = this.state.masterTicketList.slice();
+    console.log(15);
+    var newMasterTicketList = this.state.masterTicketList;
     newMasterTicketList.push(newTicket);
     this.setState({masterTicketList: newMasterTicketList})
   }

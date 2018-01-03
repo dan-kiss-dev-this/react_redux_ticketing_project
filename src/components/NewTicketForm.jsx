@@ -22,6 +22,14 @@ class NewTicketForm extends React.Component {
   }
 
   render(){
+    let coolLookButton = {
+      backgroundColor: '#66CDAA',
+      borderRadius: '4px',
+      padding: '10px',
+      color: 'white',
+      fontSize: '14px',
+      marginLeft: '10px',
+    }
     return (
       <div>
         <form onSubmit={this.handleNewTicketFormSubmission}>
@@ -35,12 +43,12 @@ class NewTicketForm extends React.Component {
             type='text'
             id='location'
             placeholder='Location'/>
-          <textarea
+          <input
             ref='_issue'
             type='text'
             id='issue'
             placeholder='Describe your issue'/>
-          <button type='submit'>Help!</button>
+          <button type='submit' style={coolLookButton}>Help!</button>
         </form>
       </div>
     );
