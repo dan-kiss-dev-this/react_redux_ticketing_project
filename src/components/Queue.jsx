@@ -4,17 +4,53 @@ import NewTicketControl from "./NewTicketControl";
 
 class Queue extends React.Component {
   constructor(props) {
+    console.log('constructor');
     super(props);
     this.state = {
       masterTicketList: [],
     };
     this.addNewTicketToList = this.addNewTicketToList.bind(this);
+    this.updateTicketTimeSinceOpened = this.updateTicketTimeSinceOpened.bind(this);
+  }
+
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount')
+    this.timeSinceOpenedChecker = setInterval(() =>
+      this.updateTicketTimeSinceOpened(),
+      5000
+    );
+  }
+
+  componentWillReceiveProps() {
+    console.log('componentWillReceiveProps');
+  }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timeSinceOpenedChecker);
   }
 
   addNewTicketToList(newTicket){
     console.log(15);
-    var newMasterTicketList = this.state.masterTicketList.slice();
+    let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.push(newTicket);
+    console.log('setState')
     this.setState({masterTicketList: newMasterTicketList});
   }
 
@@ -22,23 +58,14 @@ class Queue extends React.Component {
     console.log('check');
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
-    ticket.setTimeSinceOpened()
+      ticket.setTimeSinceOpened()
     );
+    console.log('setState');
     this.setState({masterTicketList:newMasterTicketList})
   }
 
-  componentWillUnmount(){
-    clearInterval(this.timeSinceOpenedChecker);
-  }
-
-  componentDidMount() {
-    this.timeSinceOpenedChecker = setInterval(() =>
-      this.updateTicketTimeSinceOpened(),
-      5000
-    );
-  }
-
   render() {
+    console.log('render');
     return (
       <div>
         <TicketList ticketList = {this.state.masterTicketList}/>
