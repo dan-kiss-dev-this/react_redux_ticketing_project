@@ -66,7 +66,7 @@ class NewTicketControl extends React.Component {
           <Modal.Body>
               <NewTicketForm
               onNewTicketCreation={this.props.onNewTicketCreation}
-              hideFormAfterSubmission = {this.hideModal}/>
+              hideFormAfterSubmission = {this.hideFormModal}/>
             </Modal.Body>
         </Modal>
           {/* {formAreaContent} */}

@@ -1,6 +1,7 @@
 import React from "react";
 import Ticket from "../models/ticket.js";
 import PropTypes from "prop-types";
+
 //ticket.js above
 
 class NewTicketForm extends React.Component {
