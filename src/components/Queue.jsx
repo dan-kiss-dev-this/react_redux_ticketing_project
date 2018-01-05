@@ -30,13 +30,3 @@ class Queue extends React.Component {
 }
 
 export default Queue;
-
-// old
-// function Queue(props){
-//   return(
-//     <div>
-//       <TicketList/>
-//       <NewTicketControl/>
-//     </div>
-//   );
-// }

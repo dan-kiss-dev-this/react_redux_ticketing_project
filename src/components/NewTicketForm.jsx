@@ -48,7 +48,8 @@ class NewTicketForm extends React.Component {
             type='text'
             id='issue'
             placeholder='Describe your issue'/>
-          <button type='submit' style={coolLookButton}>Help!</button>
+          <button type='submit'>Help!</button>
+          {/* <button type='submit' style={coolLookButton}>Help!</button> */}
         </form>
       </div>
     );
