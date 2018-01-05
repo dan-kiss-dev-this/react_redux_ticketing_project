@@ -46,32 +46,32 @@ class NewTicketControl extends React.Component {
     //   formAreaContent = <Button bsStyle="primary" bsSize="large" onClick={this.showForm}>Request help!</Button>
     // }
 
-    return (
-      console.log(42),
-      <div>
+      return (
+        console.log(42),
+        <div>
           <Button
             block="true"
             bsStyle="primary"
-          bsSize="large"
+            bsSize="large"
             onClick={this.showFormModal}>
             Request Help!
-        </Button>
+          </Button>
           <Modal
-          show={this.state.formModalIsShowing}
-          onHide={this.hideFormModal}
-          bsSize="large">
-          <Modal.Header>
+            show={this.state.formModalIsShowing}
+            onHide={this.hideFormModal}
+            bsSize="large">
+            <Modal.Header>
               <Modal.Title>Request Help</Modal.Title>
             </Modal.Header>
-          <Modal.Body>
+            <Modal.Body>
               <NewTicketForm
-              onNewTicketCreation={this.props.onNewTicketCreation}
-              hideFormAfterSubmission = {this.hideFormModal}/>
+                onNewTicketCreation={this.props.onNewTicketCreation}
+                hideFormAfterSubmission = {this.hideFormModal}/>
             </Modal.Body>
-        </Modal>
+          </Modal>
           {/* {formAreaContent} */}
         </div>
-    );
+      );
   }
 
 }
