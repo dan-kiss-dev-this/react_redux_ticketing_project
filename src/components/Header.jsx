@@ -2,11 +2,11 @@ import React from "react";
 
 function Header(props) {
   let coolLook = {
-    backgroundColor: '#20B2AA',
-    borderRadius: '4px',
-    padding: '5px',
-    color: '#E0FFFF',
-  }
+    backgroundColor: "#20B2AA",
+    borderRadius: "4px",
+    padding: "5px",
+    color: "#E0FFFF",
+  };
   return (
     <div style = {coolLook}>
       <h1>Help Queue</h1>

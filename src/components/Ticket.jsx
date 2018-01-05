@@ -10,12 +10,12 @@ function Ticket(props){
   //   backgroundColor: '#E0FFFF',
   // }
   return (
-      <div >
-        {/* <div style={coolLook}> */}
-        <h3>{props.location} - {props.names}</h3>
-        <p><em>{props.issue}</em></p>
-        <hr/>
-      </div>
+    <div >
+      {/* <div style={coolLook}> */}
+      <h3>{props.location} - {props.names}</h3>
+      <p><em>{props.issue}</em></p>
+      <hr/>
+    </div>
   );
 }
 

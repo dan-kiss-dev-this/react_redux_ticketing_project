@@ -11,7 +11,7 @@ class NewTicketForm extends React.Component {
   }
 
   handleNewTicketFormSubmission(event) {
-    event.preventDefault()
+    event.preventDefault();
     console.log(this.refs._names.value);
     const { _names, _location, _issue } = this.refs;
     var newTicket = new Ticket(_names.value, _location.value, _issue.value);
@@ -23,13 +23,13 @@ class NewTicketForm extends React.Component {
 
   render(){
     let coolLookButton = {
-      backgroundColor: '#66CDAA',
-      borderRadius: '4px',
-      padding: '10px',
-      color: 'white',
-      fontSize: '14px',
-      marginLeft: '10px',
-    }
+      backgroundColor: "#66CDAA",
+      borderRadius: "4px",
+      padding: "10px",
+      color: "white",
+      fontSize: "14px",
+      marginLeft: "10px",
+    };
     return (
       <div>
         <form onSubmit={this.handleNewTicketFormSubmission}>
@@ -60,7 +60,7 @@ class NewTicketForm extends React.Component {
 NewTicketForm.propTypes = {
   onNewTicketCreation: PropTypes.func,
   hideFormAfterSubmission: PropTypes.func
-}
+};
 
 export default NewTicketForm;
 

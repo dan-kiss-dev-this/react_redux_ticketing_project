@@ -1,6 +1,6 @@
 import React from "react";
 import NewTicketForm from "./NewTicketForm";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {Button} from "react-bootstrap";
 import {Modal} from "react-bootstrap";
 
@@ -16,12 +16,12 @@ class NewTicketControl extends React.Component {
 
   showFormModal() {
     console.log(16);
-    this.setState({formModalIsShowing: true})
+    this.setState({formModalIsShowing: true});
   }
 
   hideFormModal() {
     console.log(21);
-    this.setState({formModalIsShowing: false})
+    this.setState({formModalIsShowing: false});
   }
 
 
@@ -49,28 +49,28 @@ class NewTicketControl extends React.Component {
     return (
       console.log(42),
       <div>
-        <Button
-          block="true"
-          bsStyle="primary"
+          <Button
+            block="true"
+            bsStyle="primary"
           bsSize="large"
-          onClick={this.showFormModal}>
+            onClick={this.showFormModal}>
             Request Help!
-          </Button>
+        </Button>
           <Modal
-            show={this.state.formModalIsShowing}
-            onHide={this.hideFormModal}
-            bsSize="large">
-            <Modal.Header>
+          show={this.state.formModalIsShowing}
+          onHide={this.hideFormModal}
+          bsSize="large">
+          <Modal.Header>
               <Modal.Title>Request Help</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+          <Modal.Body>
               <NewTicketForm
-                onNewTicketCreation={this.props.onNewTicketCreation}
-                hideFormAfterSubmission = {this.hideModal}/>
+              onNewTicketCreation={this.props.onNewTicketCreation}
+              hideFormAfterSubmission = {this.hideModal}/>
             </Modal.Body>
-          </Modal>
-        {/* {formAreaContent} */}
-      </div>
+        </Modal>
+          {/* {formAreaContent} */}
+        </div>
     );
   }
 
@@ -78,6 +78,6 @@ class NewTicketControl extends React.Component {
 
 NewTicketControl.propTypes = {
   onNewTicketCreation: PropTypes.func
-}
+};
 
 export default NewTicketControl;
