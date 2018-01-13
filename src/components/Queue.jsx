@@ -1,6 +1,7 @@
 import React from "react";
 import TicketList from "./TicketList";
 import NewTicketControl from "./NewTicketControl";
+// import Ticket from "../models/ticket.js";
 
 class Queue extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class Queue extends React.Component {
     console.log('check');
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
-      ticket.setTimeSinceOpened()
+      ticket.timeSinceOpened()
     );
     console.log('setState');
     this.setState({masterTicketList:newMasterTicketList})
