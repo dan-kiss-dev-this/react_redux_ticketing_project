@@ -1,6 +1,6 @@
 import React from "react";
 import NewTicketForm from "./NewTicketForm";
-import PropTypes from "prop-types";
+
 import {Button} from "react-bootstrap";
 import {Modal} from "react-bootstrap";
 
@@ -76,8 +76,8 @@ class NewTicketControl extends React.Component {
 
 }
 
-NewTicketControl.propTypes = {
-  onNewTicketCreation: PropTypes.func
-};
+// NewTicketControl.propTypes = {
+//   onNewTicketCreation: PropTypes.func
+// };
 
 export default NewTicketControl;

@@ -1,7 +1,7 @@
 import React from "react";
 import TicketList from "./TicketList";
 import NewTicketControl from "./NewTicketControl";
-// import Ticket from "../models/ticket.js";
+import Ticket from "../models/ticket.js";
 
 class Queue extends React.Component {
   constructor(props) {

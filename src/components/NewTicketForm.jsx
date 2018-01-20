@@ -1,8 +1,29 @@
 import React from "react";
 import Ticket from "../models/ticket.js";
-import PropTypes from "prop-types";
 
-//ticket.js above
+
+// function NewTicketForm(){
+//   return(
+//     <div>
+//       <form>
+//        <input
+//          type='text'
+//          id='names'
+//          placeholder='Pair Names'/>
+//        <input
+//          type='text'
+//          id='location'
+//          placeholder='Location'/>
+//        <textarea
+//          id='issue'
+//          placeholder='Describe your issue.'/>
+//        <button type='submit'>Help!</button>
+//      </form>
+//     </div>
+//   );
+// }
+//
+// export default NewTicketForm;
 
 class NewTicketForm extends React.Component {
 
@@ -19,7 +40,6 @@ class NewTicketForm extends React.Component {
     console.log(newTicket);
     this.props.onNewTicketCreation(newTicket);
     this.props.hideFormAfterSubmission();
-    // alert(`Data Gathered! ${_names.value}, ${_location.value}, ${_issue.value}`);
   }
 
   render(){
@@ -49,41 +69,17 @@ class NewTicketForm extends React.Component {
             type='text'
             id='issue'
             placeholder='Describe your issue'/>
-          <button type='submit'>Help!</button>
-          {/* <button type='submit' style={coolLookButton}>Help!</button> */}
+          <button type='submit' style={coolLookButton}>Help!</button>
         </form>
       </div>
     );
   }
 
 }
-
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func,
-  hideFormAfterSubmission: PropTypes.func
-};
+//
+// NewTicketForm.propTypes = {
+//   onNewTicketCreation: PropTypes.func,
+//   hideFormAfterSubmission: PropTypes.func
+// };
 
 export default NewTicketForm;
-
-// old functional is below, need to change to make class based component
-// function NewTicketForm(props) {
-//
-//   function handleNewTicketFormSubmission(event) {
-//     event.preventDefault()
-//   }
-//
-//   return (
-//     <div>
-//       <form onSubmit={handleNewTicketFormSubmission}>
-//         <input
-//           type="text"
-//           id="names"
-//           placeholder="Pair Names"/>
-//         <input type="text" id="location" placeholder="Location"/>
-//         <textarea id="issue" placeholder="Describe your issue"/>
-//         <button type="submit">Help!</button>
-//       </form>
-//     </div>
-//   );
-// }
-//
