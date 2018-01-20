@@ -21,12 +21,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "file-loader": "^1.1.6",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^15.5.4",
-    "react-router-dom": "^4.0.0"
+    "react-router-dom": "^4.0.0",
+    "url-loader": "^0.6.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

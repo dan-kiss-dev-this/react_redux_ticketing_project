@@ -17,6 +17,7 @@ function App(props){
       <Switch>
         {/* <Route exact path='/' component={Queue} /> */}
         <Route exact path='/'  />
+        {/* <Route exact path='/' component={TicketList} /> find out how to do this */}
         <Route exact path='/newticket2' component={NewTicketForm,Queue} />
       </Switch>
     </div>
