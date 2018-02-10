@@ -3,19 +3,33 @@ import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import App from "./components/App";
 import { HashRouter } from "react-router-dom";
+import { createStore } from 'redux';
+import reducer from './reducers/ticket-list-reducer';
+import { Provider } from 'react-redux';
+
+const store = createStore(reducer);
 
 const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <HashRouter>
-        <Component/>
-      </HashRouter>
-    </AppContainer>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById("react-app-root")
   );
 };
 
-render(App);
+// const render = (Component) => {
+//   ReactDOM.render(
+//     <AppContainer>
+//       <HashRouter>
+//         <Component/>
+//       </HashRouter>
+//     </AppContainer>,
+//     document.getElementById("react-app-root")
+//   );
+// };
+
+// render(App);
 
 if (module.hot) {
   module.hot.accept("./components/App", () => {
