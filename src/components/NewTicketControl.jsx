@@ -50,7 +50,7 @@ class NewTicketControl extends React.Component {
         console.log(42),
         <div>
           <Button
-            block="true"
+            // block="true" //string try here
             bsStyle="primary"
             bsSize="large"
             onClick={this.showFormModal}>

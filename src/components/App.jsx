@@ -6,20 +6,24 @@ import { Switch, Route } from 'react-router-dom';
 import NewTicketForm from './NewTicketForm';
 import Queue from "./Queue";
 import NewTicketControl from "./NewTicketControl";
+import { Router } from 'react-router';
+import createHistory from 'history/createBrowserHistory';
 
 function App(props){
+  let history= createHistory();
 // function App(){
   return (
     <div>
 
       <Header/>
-      {/* <Queue/> */}
-      <Switch>
-        {/* <Route exact path='/' component={Queue} /> */}
-        <Route exact path='/'  />
-        {/* <Route exact path='/' component={TicketList} /> find out how to do this */}
-        <Route exact path='/newticket2' component={NewTicketForm,Queue} />
-      </Switch>
+      <Queue/>
+      <Router history={history}>
+        <Switch>
+          <Route exact path='/'  />
+          <Route exact path='/newticket2' component={NewTicketForm,Queue} />
+        </Switch>
+
+      </Router>
     </div>
   );
 }

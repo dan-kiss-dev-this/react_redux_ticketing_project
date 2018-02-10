@@ -29,7 +29,7 @@ const render = (Component) => {
 //   );
 // };
 
-// render(App);
+render(App);
 
 if (module.hot) {
   module.hot.accept("./components/App", () => {
