@@ -8,7 +8,7 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    resolve(__dirname, "src") + "/index.jsx"
+    resolve(__dirname, "src", "index.jsx")
   ],
 
   output: {
@@ -20,24 +20,17 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+
   devtool: '#source-map',
+
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'build'),
     publicPath: '/'
   },
+
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        enforce: "pre",
-        loader: "eslint-loader",
-        exclude: /node_modules/,
-        options: {
-          emitWarning: true,
-          configFile: "./.eslintrc.json"
-        }
-      },
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
@@ -53,17 +46,25 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|gif|jp(e*)g|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 8000,
-            name: 'images/[hash]-[name].[ext]'
-          }
-        }
+        test: /\.css$/,
+        loader: 'style-loader'
       },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        exclude: resolve(__dirname, "src/styles/styles.css"),
+        options: {
+         modules: true,
+         localIdentName: '[name]__[local]___[hash:base64:5]'
+       }
+     },
+     {
+       test: resolve(__dirname, "src/styles/styles.css"),
+       loader: 'css-loader'
+     }
     ]
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
@@ -73,5 +74,5 @@ module.exports = {
       title: 'React Help Queue',
       filename: resolve(__dirname, "build", "index.html"),
     }),
-  ]
+  ],
 };

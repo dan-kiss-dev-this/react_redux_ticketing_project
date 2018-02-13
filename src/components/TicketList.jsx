@@ -1,10 +1,10 @@
 import React from "react";
 import Ticket from "./Ticket";
+import PropTypes from 'prop-types';
 
 
 function TicketList(props){
   console.log(props.ticketList);
-
   return (
     <div>
       <hr/>
@@ -20,8 +20,8 @@ function TicketList(props){
   );
 }
 
-// TicketList.propTypes = {
-//   ticketList: PropTypes.array
-// };
+TicketList.propTypes = {
+  ticketList: PropTypes.array.isRequired
+};
 
 export default TicketList;

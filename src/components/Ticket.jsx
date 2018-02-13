@@ -1,25 +1,27 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
+import Moment from "moment";
 
 
 function Ticket(props){
-
-  // let coolLook = {
-  //   color: '#66CDAA',
-  //   borderRadius: '4px',
-  //   padding: '5px',
-  //   backgroundColor: '#E0FFFF',
-  // }
+  const timeSinceOpened = new Moment().to(props.timeOpened);
+  console.log(timeSinceOpened);
   return (
-    <div >
-      {/* <div style={coolLook}> */}
+    <div>
       <h3>{props.location} - {props.names}</h3>
       <p><em>{props.issue}</em></p>
-      <p>{props.timeSinceOpened}</p>
+      <p>{timeSinceOpened}</p>
       <hr/>
     </div>
   );
 }
+
+Ticket.propTypes = {
+  names: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  timeOpened: PropTypes.number,
+  issue: PropTypes.string
+};
 
 
 export default Ticket;

@@ -1,5 +1,8 @@
 import React from "react";
 import Ticket from "../models/ticket.js";
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import c from './../constants';
 
 class NewTicketForm extends React.Component {
 
@@ -13,6 +16,17 @@ class NewTicketForm extends React.Component {
     event.preventDefault();
     console.log(this.refs._names.value);
     const { _names, _location, _issue } = this.refs;
+    const { dispatch } = this.props;
+    const action = {
+      //object literal with new state will go here
+      type: c.ADD_TICKET,
+      id: null,
+      names: _names.value,
+      location: _location.value,
+      description: issue.value,
+      timeOpened: new Date().getTime()
+    }
+    dispatch(action);
     var newTicket = new Ticket(_names.value, _location.value, _issue.value);
     console.log(newTicket);
     this.props.onNewTicketCreation(newTicket);
@@ -41,7 +55,7 @@ class NewTicketForm extends React.Component {
             type='text'
             id='location'
             placeholder='Location'/>
-          <input
+          <textarea
             ref='_issue'
             type='text'
             id='issue'
@@ -53,10 +67,12 @@ class NewTicketForm extends React.Component {
   }
 
 }
-//
-// NewTicketForm.propTypes = {
-//   onNewTicketCreation: PropTypes.func,
-//   hideFormAfterSubmission: PropTypes.func
-// };
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func,
+  hideFormAfterSubmission: PropTypes.func
+};
+
+NewTicketForm = connect()(NewTicketForm);
 
 export default NewTicketForm;
