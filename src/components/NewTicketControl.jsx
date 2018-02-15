@@ -32,7 +32,6 @@ class NewTicketControl extends React.Component {
     let formAreaContent = null;
     if (this.state.formVisibleOnPage){
       formAreaContent = <NewTicketForm
-        onNewTicketCreation={this.props.onNewTicketCreation}
         hideFormAfterSubmission = {this.hideForm}/>
     } else {
       formAreaContent = <button onClick={this.showForm} style={coolLookButton}>Request Help</button>;
@@ -46,9 +45,5 @@ class NewTicketControl extends React.Component {
   }
 
 }
-
-NewTicketControl.propTypes = {
-  onNewTicketCreation: PropTypes.func
-};
 
 export default NewTicketControl;

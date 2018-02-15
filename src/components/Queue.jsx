@@ -7,42 +7,29 @@ class Queue extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      masterTicketList: [],
-    };
-    this.addNewTicketToList = this.addNewTicketToList.bind(this);
     this.updateTicketTimeSinceOpened = this.updateTicketTimeSinceOpened.bind(this);
   }
 
   componentDidMount() {
     this.timeSinceOpenedChecker = setInterval(() =>
       this.updateTicketTimeSinceOpened(),
-      5000
+      15000
     );
   }
   componentWillUnmount(){
     clearInterval(this.timeSinceOpenedChecker);
   }
 
-  addNewTicketToList(newTicket){
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.push(newTicket);
-    this.setState({masterTicketList: newMasterTicketList});
-  }
-
   updateTicketTimeSinceOpened() {
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.forEach((ticket) =>
-      ticket.setTimeSinceOpened()
-    );
-    this.setState({masterTicketList:newMasterTicketList})
+    //code below refreshes time waiting in ticket.jsx
+    this.forceUpdate();
   }
 
   render() {
     return (
       <div>
         <TicketList ticketList = {this.props.masterTicketList}/>
-        <NewTicketControl onNewTicketCreation= {this.addNewTicketToList}/>
+        <NewTicketControl />
       </div>
     );
   }
