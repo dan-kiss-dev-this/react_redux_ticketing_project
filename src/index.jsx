@@ -2,20 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import styles from './styles/styles.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers/ticket-list-reducer';
 import { Provider } from 'react-redux';
+import middlewareLogger from './middleware/middleware-logger';
+import persistDataLocally from './middleware/persist-local-storage-data';
+import { HashRouter } from 'react-router-dom';
 
-const store = createStore(reducer);
+let retrievedState;
+try {
+  retrievedState = localStorage.getItem("reduxStore");
+  if (retrievedState === null){
+    retrievedState = [];
+  }
+  retrievedState = JSON.parse(retrievedState);
+} catch (err){
+  retrievedState = [];
+}
 
-let unsubscribe = store.subscribe( () =>
-  console.log(store.getState() )
-)
+const store = createStore(reducer, retrievedState, applyMiddleware(middlewareLogger, persistDataLocally));
 
-// const render = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </Provider>,
     document.getElementById("react-app-root")
   );
