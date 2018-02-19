@@ -33,6 +33,16 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
+        enforce: "pre",
+        loader: "eslint-loader",
+        exclude: /node_modules/,
+        options: {
+          emitWarning: true,
+          configFile: "./.eslintrc.json"
+        }
+      },
+      {
+        test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
@@ -44,25 +54,8 @@ module.exports = {
             "react-hot-loader/babel"
           ]
         }
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        exclude: resolve(__dirname, "src/styles/styles.css"),
-        options: {
-         modules: true,
-         localIdentName: '[name]__[local]___[hash:base64:5]'
-       }
-     },
-     {
-       test: resolve(__dirname, "src/styles/styles.css"),
-       loader: 'css-loader'
-     }
-    ]
+      }
+    ],
   },
 
   plugins: [
@@ -74,5 +67,5 @@ module.exports = {
       title: 'React Help Queue',
       filename: resolve(__dirname, "build", "index.html"),
     }),
-  ],
+  ]
 };

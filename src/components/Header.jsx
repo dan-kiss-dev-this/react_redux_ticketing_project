@@ -1,8 +1,7 @@
-import React from "react";
-import styles from './styles/Header.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header(props) {
+function Header(){
   let coolLook = {
     backgroundColor: "#20B2AA",
     borderRadius: "4px",
@@ -12,7 +11,7 @@ function Header(props) {
   return (
     <div style = {coolLook}>
       <h1>Help Queue</h1>
-      <Link to="/">Home</Link> | <Link to="/admin">Admin</Link>
+      <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
     </div>
   );
 }

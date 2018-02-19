@@ -1,27 +1,36 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Moment from "moment";
-
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Ticket(props){
-  const timeSinceOpened = new Moment().to(props.timeOpened);
-  console.log(timeSinceOpened);
-  return (
+  const ticketInformation =
     <div>
       <h3>{props.location} - {props.names}</h3>
-      <p><em>{props.issue}</em></p>
-      <p>{timeSinceOpened}</p>
+      <h4>{props.formattedWaitTime}</h4>
       <hr/>
-    </div>
-  );
+    </div>;
+  if (props.currentRouterPath === '/admin'){
+    return (
+      <div onClick={() => {props.onTicketSelection(props.ticketId);}}>
+        {ticketInformation}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {ticketInformation}
+      </div>
+    );
+  }
 }
 
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  timeOpened: PropTypes.number.isRequired,
-  issue: PropTypes.string
+  issue: PropTypes.string,
+  formattedWaitTime: PropTypes.string,
+  currentRouterPath: PropTypes.string,
+  onTicketSelection: PropTypes.func,
+  ticketId: PropTypes.string.isRequired
 };
-
 
 export default Ticket;

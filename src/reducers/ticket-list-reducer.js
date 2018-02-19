@@ -1,18 +1,18 @@
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_TICKET':
-      const {names, location, description, timeOpened, id } = action;
-      return [
-        ...state,
-        {
-          names: names,
-          location: location,
-          description: description,
-          timeOpened: timeOpened,
-          id: id
-        }
-      ]
-    default:
-      return state;
+  case 'ADD_TICKET':
+    const { names, location, issue, timeOpen, id } = action;
+    let newState = Object.assign({}, state, {
+      [id]: {
+        names: names,
+        location: location,
+        issue: issue,
+        timeOpen: timeOpen,
+        id: id
+      }
+    });
+    return newState;
+  default:
+    return state;
   }
-}
+};

@@ -1,75 +1,51 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import Moment from 'moment';
 import { connect } from 'react-redux';
-import c from './../constants';
 import { v4 } from 'uuid';
 
-class NewTicketForm extends React.Component {
+function NewTicketForm(props){
+  let _names = null;
+  let _location = null;
+  let _issue = null;
 
-  constructor(props){
-    super(props);
-    console.log(props);
-    this.handleNewTicketFormSubmission = this.handleNewTicketFormSubmission.bind(this);
-  }
-
-  handleNewTicketFormSubmission(event) {
+  function handleNewTicketFormSubmission(event) {
+    const { dispatch } = props;
     event.preventDefault();
-    // console.log(this.refs._names.value);
-    const { _names, _location, _issue } = this.refs;
-    const { dispatch } = this.props;
     const action = {
-      //object literal with new state will go here
-      type: c.ADD_TICKET,
+      type: 'ADD_TICKET',
       id: v4(),
       names: _names.value,
       location: _location.value,
-      description: issue.value,
-      timeOpened: new Date().getTime()
-    }
-    console.log(action.id)
-    dispatch(action);
-    this.props.hideFormAfterSubmission();
-  }
-
-  render(){
-    let coolLookButton = {
-      backgroundColor: "#66CDAA",
-      borderRadius: "4px",
-      padding: "10px",
-      color: "white",
-      fontSize: "14px",
-      marginLeft: "10px",
+      issue: _issue.value,
+      timeOpen: new Moment()
     };
-    return (
-      <div>
-        <form onSubmit={this.handleNewTicketFormSubmission}>
-          <input
-            ref='_names'
-            type='text'
-            id='names'
-            placeholder='Pair Names'/>
-          <input
-            ref='_location'
-            type='text'
-            id='location'
-            placeholder='Location'/>
-          <textarea
-            ref='_issue'
-            type='text'
-            id='issue'
-            placeholder='Describe your issue'/>
-          <button type='submit' style={coolLookButton}>Help!</button>
-        </form>
-      </div>
-    );
+    dispatch(action);
+    _names.value = '';
+    _location.value = '';
+    _issue.value = '';
   }
 
+  return (
+    <div>
+      <form onSubmit={handleNewTicketFormSubmission}>
+        <input
+          type='text'
+          id='names'
+          placeholder='Pair Names'
+          ref={(input) => {_names = input;}}/>
+        <input
+          type='text'
+          id='location'
+          placeholder='Location'
+          ref={(input) => {_location = input;}}/>
+        <textarea
+          id='issue'
+          placeholder='Describe your issue.'
+          ref={(textarea) => {_issue = textarea;}}/>
+        <button type='submit'>Help!</button>
+      </form>
+    </div>
+  );
 }
 
-NewTicketForm.propTypes = {
-  hideFormAfterSubmission: PropTypes.func
-};
-
-NewTicketForm = connect()(NewTicketForm);
-
-export default NewTicketForm;
+export default connect()(NewTicketForm);

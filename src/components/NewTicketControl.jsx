@@ -1,49 +1,34 @@
-import React from "react";
-import NewTicketForm from "./NewTicketForm";
-import PropTypes from "prop-types";
+import React from 'react';
+import ConfirmationQuestions from './ConfirmationQuestions';
+import NewTicketForm from './NewTicketForm';
 
 class NewTicketControl extends React.Component {
 
   constructor(props) {
     super(props);
-    this.showForm = this.showForm.bind(this);
-    this.hideForm = this.hideForm.bind(this);
-    this.state = {formVisibleOnPage: false};
+    this.state = {
+      formVisibleOnPage: false
+    };
+    this.handleTroubleshootingConfirmation = this.handleTroubleshootingConfirmation.bind(this);
   }
 
-  showForm(event) {
+  handleTroubleshootingConfirmation(){
     this.setState({formVisibleOnPage: true});
   }
 
-  hideForm(event) {
-    this.setState({formVisibleOnPage: false});
-  }
-
-
   render(){
-    let coolLookButton = {
-      backgroundColor: "#66CDAA",
-      borderRadius: "4px",
-      padding: "5px",
-      color: "white",
-      fontSize: "14px",
-      marginLeft: "10px",
-    };
-    let formAreaContent = null;
+    let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      formAreaContent = <NewTicketForm
-        hideFormAfterSubmission = {this.hideForm}/>
+      currentlyVisibleContent = <NewTicketForm />;
     } else {
-      formAreaContent = <button onClick={this.showForm} style={coolLookButton}>Request Help</button>;
+      currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation}/>;
     }
-
     return (
       <div>
-        {formAreaContent}
+        {currentlyVisibleContent}
       </div>
     );
   }
-
 }
 
 export default NewTicketControl;
